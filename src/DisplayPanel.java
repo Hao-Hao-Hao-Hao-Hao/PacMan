@@ -4,6 +4,8 @@ import java.awt.image.BufferedImage;
 
 public class DisplayPanel extends JPanel{
     private int score;
+    private int lives;
+    private int health;
     private int steveX;
     private int steveY;
     private int zombieX;
@@ -41,9 +43,6 @@ public class DisplayPanel extends JPanel{
     private BufferedImage emerald;
     private BufferedImage diamond;
     private BufferedImage ancientDebris;
-
-
-
     private boolean gameStart;
     private boolean gameOver;
 

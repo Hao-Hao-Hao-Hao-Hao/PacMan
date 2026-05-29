@@ -26,29 +26,29 @@ public class DisplayPanel extends JPanel implements MouseListener, KeyListener, 
     private int smallSlime1Y;
     private int smallSlime2X;
     private int smallSlime2Y;
-    private BufferedImage steve;
-    private BufferedImage zombie;
-    private BufferedImage skeleton;
-    private BufferedImage creeper;
-    private BufferedImage bigSlime;
-    private BufferedImage smallSlime1;
-    private BufferedImage smallSlime2;
-    private BufferedImage sword;
-    private BufferedImage bow;
-    private BufferedImage shield;
-    private BufferedImage arrow;
-    private BufferedImage tnt;
-    private BufferedImage totem;
-    private BufferedImage heal;
-    private BufferedImage speed;
-    private BufferedImage live;
-    private BufferedImage fullHeart;
-    private BufferedImage halfHeart;
-    private BufferedImage iron;
-    private BufferedImage gold;
-    private BufferedImage emerald;
-    private BufferedImage diamond;
-    private BufferedImage ancientDebris;
+    private BufferedImage steve; //image from google search
+    private BufferedImage zombie; //image from google search
+    private BufferedImage skeleton; //image from google search
+    private BufferedImage creeper; //image from google search
+    private BufferedImage bigSlime; //image from google search
+    private BufferedImage smallSlime1; //image from google search
+    private BufferedImage smallSlime2; //image from google search
+    private BufferedImage sword; //image from google search
+    private BufferedImage bow; //image from google search
+    private BufferedImage shield; //image from google search
+    private BufferedImage arrow; //image from google search
+    private BufferedImage tnt; //image from google search
+    private BufferedImage totem; //image from google search
+    private BufferedImage heal; //image from google search
+    private BufferedImage speed; //image from google search
+    private BufferedImage live; //image from google search
+    private BufferedImage fullHeart; //image from google search
+    private BufferedImage halfHeart; //image from google search
+    private BufferedImage iron; //image from google search
+    private BufferedImage gold; //image from google search
+    private BufferedImage emerald; //image from google search
+    private BufferedImage diamond; //image from google search
+    private BufferedImage ancientDebris; //image from google search
     private boolean gameStart;
     private boolean gameOver;
     private boolean pressedKeys;
@@ -70,11 +70,24 @@ public class DisplayPanel extends JPanel implements MouseListener, KeyListener, 
 
     @Override
     public void keyPressed(KeyEvent e) {
+        int keyCode = e.getKeyCode();
+        pressedKeys = true;
+        if (keyCode == KeyEvent.VK_A) {
+            try {
+                mario = ImageIO.read(new File("src/marioleft.png"));
+            } catch (IOException error) { }
+        }
+        if (keyCode == KeyEvent.VK_D) {  // D key; VK_D equals 65
+            try {
+                mario = ImageIO.read(new File("src/marioright.png"));
+            } catch (IOException error) { }
+        }
 
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
+
 
     }
 

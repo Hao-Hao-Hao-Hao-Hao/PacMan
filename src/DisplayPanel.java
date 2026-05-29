@@ -51,7 +51,7 @@ public class DisplayPanel extends JPanel implements MouseListener, KeyListener, 
     private BufferedImage ancientDebris; //image from google search
     private boolean gameStart;
     private boolean gameOver;
-    private boolean pressedKeys;
+    private int keyCode;
 
 
     public DisplayPanel() {
@@ -60,6 +60,7 @@ public class DisplayPanel extends JPanel implements MouseListener, KeyListener, 
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        moveSteve();
 
     }
 
@@ -70,25 +71,25 @@ public class DisplayPanel extends JPanel implements MouseListener, KeyListener, 
 
     @Override
     public void keyPressed(KeyEvent e) {
-        int keyCode = e.getKeyCode();
-        pressedKeys = true;
+        keyCode = e.getKeyCode();
         if (keyCode == KeyEvent.VK_A) {
             try {
-                mario = ImageIO.read(new File("src/marioleft.png"));
+                steve = ImageIO.read(new File("imgs/Steve_Left.png"));
             } catch (IOException error) { }
         }
         if (keyCode == KeyEvent.VK_D) {  // D key; VK_D equals 65
             try {
-                mario = ImageIO.read(new File("src/marioright.png"));
+                steve = ImageIO.read(new File("imgs/Steve_Right.png"));
             } catch (IOException error) { }
         }
+
+    }
+    private void moveSteve() {
 
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-
-
     }
 
     @Override

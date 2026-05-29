@@ -1,7 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 public class DisplayPanel extends JPanel{
+    private int score;
     private int steveX;
     private int steveY;
     private int zombieX;
@@ -16,6 +18,19 @@ public class DisplayPanel extends JPanel{
     private int smallSlime1Y;
     private int smallSlime2X;
     private int smallSlime2Y;
+    private BufferedImage steve;
+    private BufferedImage zombie;
+    private BufferedImage skeleton;
+    private BufferedImage creeper;
+    private BufferedImage bigSlime;
+    private BufferedImage smallSlime1;
+    private BufferedImage smallSlime2;
+    private BufferedImage sword;
+    private BufferedImage bow;
+    private BufferedImage shield;
+    private BufferedImage arrow;
+    private boolean gameOver;
+
 
     public DisplayPanel() {
         setBackground(Color.BLACK);

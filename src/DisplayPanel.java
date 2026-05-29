@@ -29,6 +29,22 @@ public class DisplayPanel extends JPanel{
     private BufferedImage bow;
     private BufferedImage shield;
     private BufferedImage arrow;
+    private BufferedImage tnt;
+    private BufferedImage totem;
+    private BufferedImage heal;
+    private BufferedImage speed;
+    private BufferedImage live;
+    private BufferedImage fullHeart;
+    private BufferedImage halfHeart;
+    private BufferedImage iron;
+    private BufferedImage gold;
+    private BufferedImage emerald;
+    private BufferedImage diamond;
+    private BufferedImage ancientDebris;
+
+
+
+    private boolean gameStart;
     private boolean gameOver;
 
 

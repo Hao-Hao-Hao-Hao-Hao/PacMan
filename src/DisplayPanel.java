@@ -55,7 +55,30 @@ public class DisplayPanel extends JPanel implements MouseListener, KeyListener, 
 
 
     public DisplayPanel() {
-        setBackground(Color.BLACK);
+        score = 0;
+        steveX = 0;
+        steveY = 0;
+        try {
+            background = ImageIO.read(new File("src/img.png"));
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            steve = ImageIO.read(new File("imgs/Steve_Right.png"));
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.drawImage(background, 0, 0, null);
+        g.drawImage(steve, steveX, steveY, null);
+
+        g.setFont(new Font("Georgia", Font.BOLD, 24));
+        g.setColor(Color.YELLOW);
+        g.drawString("Score: " + score, 10, 20);
     }
 
     @Override

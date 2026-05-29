@@ -1,8 +1,14 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 
-public class DisplayPanel extends JPanel{
+
+public class DisplayPanel extends JPanel implements MouseListener, KeyListener, ActionListener{
     private int score;
     private int lives;
     private int health;
@@ -45,9 +51,55 @@ public class DisplayPanel extends JPanel{
     private BufferedImage ancientDebris;
     private boolean gameStart;
     private boolean gameOver;
+    private boolean pressedKeys;
 
 
     public DisplayPanel() {
         setBackground(Color.BLACK);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
     }
 }

@@ -1,14 +1,13 @@
-import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
+import javax.imageio.ImageIO;
+import javax.swing.*;
 
 
-public class DisplayPanel extends JPanel implements MouseListener, KeyListener, ActionListener{
+public class DisplayPanel extends JPanel implements KeyListener, ActionListener{
     private int score;
     private int lives;
     private int health;
@@ -26,6 +25,7 @@ public class DisplayPanel extends JPanel implements MouseListener, KeyListener, 
     private int smallSlime1Y;
     private int smallSlime2X;
     private int smallSlime2Y;
+    private BufferedImage background;
     private BufferedImage steve; //image from google search
     private BufferedImage zombie; //image from google search
     private BufferedImage skeleton; //image from google search
@@ -51,23 +51,31 @@ public class DisplayPanel extends JPanel implements MouseListener, KeyListener, 
     private BufferedImage ancientDebris; //image from google search
     private boolean gameStart;
     private boolean gameOver;
-    private int keyCode;
+    private boolean[] pressedKeys;
+    private Timer timer;
 
 
     public DisplayPanel() {
         score = 0;
         steveX = 0;
         steveY = 0;
+        timer = new Timer(10, this);
+        pressedKeys = new boolean[128];
         try {
-            background = ImageIO.read(new File("src/img.png"));
+            background = ImageIO.read(new File("img.png"));
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
         try {
-            steve = ImageIO.read(new File("imgs/Steve_Right.png"));
+            steve = ImageIO.read(new File("Steve_Right.png"));
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
+        addKeyListener(this);
+        setFocusable(true);
+        requestFocusInWindow();
+        timer.start();
+        
     }
 
     @Override
@@ -81,11 +89,6 @@ public class DisplayPanel extends JPanel implements MouseListener, KeyListener, 
         g.drawString("Score: " + score, 10, 20);
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        moveSteve();
-
-    }
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -94,49 +97,44 @@ public class DisplayPanel extends JPanel implements MouseListener, KeyListener, 
 
     @Override
     public void keyPressed(KeyEvent e) {
-        keyCode = e.getKeyCode();
+        int keyCode = e.getKeyCode();
+        pressedKeys[keyCode] = true;
         if (keyCode == KeyEvent.VK_A) {
             try {
-                steve = ImageIO.read(new File("imgs/Steve_Left.png"));
+                steve = ImageIO.read(new File("Steve_Left.png"));
             } catch (IOException error) { }
         }
         if (keyCode == KeyEvent.VK_D) {  // D key; VK_D equals 65
             try {
-                steve = ImageIO.read(new File("imgs/Steve_Right.png"));
+                steve = ImageIO.read(new File("Steve_Right.png"));
             } catch (IOException error) { }
         }
-
-    }
-    private void moveSteve() {
 
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
+        int keyCode = e.getKeyCode();
+        pressedKeys[keyCode] = false;   
     }
+
+    private void moveSteve() {
+        if (pressedKeys[KeyEvent.VK_A]) {
+            steveX -= 5;
+        }else if (pressedKeys[KeyEvent.VK_D]) {
+            steveX += 5;
+        }else if (pressedKeys[KeyEvent.VK_W]) {
+            steveY -= 5;
+        }else if (pressedKeys[KeyEvent.VK_S]) {
+            steveY += 5;
+        }
+    }
+
 
     @Override
-    public void mouseClicked(MouseEvent e) {
-
+    public void actionPerformed(ActionEvent e) {
+        moveSteve();
+        repaint();
     }
 
-    @Override
-    public void mousePressed(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-
-    }
 }

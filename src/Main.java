@@ -4,8 +4,8 @@ public class Main {
     public static void main(String[] args) {
         JFrame frame = new JFrame("game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        int width = 19 * 32; //19 col * 32 pixels
-        int height = 21 * 32; //21 row * 32 pixels
+        int width = 1480;
+        int height = 1025; 
 
         frame.setSize(width, height);
         frame.setLocationRelativeTo(null);

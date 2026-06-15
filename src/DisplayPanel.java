@@ -47,8 +47,7 @@ public class DisplayPanel extends JPanel implements KeyListener, ActionListener,
             {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
     }; //Reference image is from Google
-    private HashMap<Point, Integer> itemMap = new HashMap<>();
-    //finished instance variables
+    private HashMap<Point, Integer> itemMap;
     private int score;
     private int health;
     private int steveX;
@@ -136,8 +135,8 @@ public class DisplayPanel extends JPanel implements KeyListener, ActionListener,
     public DisplayPanel() {
         health = 5;
         score = 0;
-        steveX = 56;
-        steveY = 128;
+        steveX = 576;
+        steveY = 576;
         zombieX = 544;
         zombieY = 485;
         skeletonX = 480;
@@ -167,6 +166,7 @@ public class DisplayPanel extends JPanel implements KeyListener, ActionListener,
         bigSlimeKilled = false;
         lives = new ArrayList<>();
         ores = new ArrayList<>();
+        itemMap = new HashMap<>();
         populateOres();
         randomOres = new ArrayList<>();
         populateRandomOres();
@@ -363,7 +363,6 @@ public class DisplayPanel extends JPanel implements KeyListener, ActionListener,
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         drawMap(g);
-        itemNum = 0;
         for (int i = 0; i < ores.size(); i++) {
             Point p = ores.get(i);
             if (randomOres.get(i) < 5) {
@@ -373,7 +372,7 @@ public class DisplayPanel extends JPanel implements KeyListener, ActionListener,
                 }
                 if (itemType == 1) {
                     g.drawImage(sword, p.x, p.y, null);
-                }else if (itemType == 2) {
+                } else if (itemType == 2) {
                     g.drawImage(shield, p.x, p.y, null);
                 } else if (itemType == 3) {
                     g.drawImage(tnt, p.x, p.y, null);
@@ -531,9 +530,8 @@ public class DisplayPanel extends JPanel implements KeyListener, ActionListener,
         Rectangle steveRect = steveRectangle();
         for (int i = 0; i < ores.size(); i++) {
             Point p = ores.get(i);
-            if (randomOres.get(i) < 5 && steveRect.intersects(itemRectangle(p))) {
-                currentItem = itemMap.get(p);
-                itemMap.remove(p);
+            if (randomOres.get(i) < 5 && (steveRect.intersects(itemRectangle(p)) || steveRect.intersects(shieldRectangle(p)))) {
+                currentItem = itemMap.remove(p);
                 randomOres.remove(i);
                 ores.remove(i);
                 i--;

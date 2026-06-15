@@ -175,7 +175,9 @@ public class DisplayPanel extends JPanel implements KeyListener, ActionListener,
         populateHearts();
         shieldTimer = new Timer(20000, e -> {
             ableToTakeDamage = true;
-            currentItem = 0;
+            if (currentItem == 2) {
+                currentItem = 0;
+            }
         });
         shieldTimer.setRepeats(false);
         speedPotTimer = new Timer(20000, e -> {
@@ -183,8 +185,10 @@ public class DisplayPanel extends JPanel implements KeyListener, ActionListener,
         });
         speedPotTimer.setRepeats(false);
         swordTimer = new Timer(10000, e -> {
-            currentItem = 0;
             ableToTakeDamage = true;
+            if (currentItem == 1) {
+                currentItem = 0;
+            }
         });
         swordTimer.setRepeats(false);
         tntTimer = new Timer(4000, e -> {

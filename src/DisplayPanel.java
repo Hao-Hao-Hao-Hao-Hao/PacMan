@@ -495,7 +495,7 @@ public class DisplayPanel extends JPanel implements KeyListener, ActionListener,
            g.setFont(new Font("Pixelify Sans", Font.BOLD, 90));
            g.drawString("Died by Killing", 300, 640);
        }
-       if (gameOver) {
+       if (gameOver && oreCollected == 117) {
         g.setColor(Color.green);
            g.setFont(new Font("Pixelify Sans", Font.BOLD, 180));
            g.drawString("You Survived!!!", 70, 540);

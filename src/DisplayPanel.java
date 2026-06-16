@@ -10,7 +10,6 @@ import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-
 public class DisplayPanel extends JPanel implements KeyListener, ActionListener, MouseListener {
    private final int[][] maze = {
            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},

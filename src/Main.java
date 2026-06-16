@@ -5,7 +5,7 @@ public class Main {
         JFrame frame = new JFrame("game");
         DisplayPanel board = new DisplayPanel();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1500, 1120);
+        frame.setSize(1496, 1120);
         frame.add(board);
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);

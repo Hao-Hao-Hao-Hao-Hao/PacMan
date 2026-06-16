@@ -1192,7 +1192,7 @@ public class DisplayPanel extends JPanel implements KeyListener, ActionListener,
            int count = 2;
            while (count != 0 && health != 5) {
                int heart = 1030 + 30 * health;
-               lives.add(new Point(heart,10));
+               lives.add(new Point(heart,0));
                health++;
                count--;
            }

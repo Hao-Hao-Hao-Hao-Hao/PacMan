@@ -576,7 +576,7 @@ public class DisplayPanel extends JPanel implements KeyListener, ActionListener,
        if (currentItem == 1 && !swordTimer.isRunning()) {
            ableToTakeDamage = false;
            swordTimer.start();
-       } else if (currentItem == 3 && !shieldTimer.isRunning()) {
+       } else if (currentItem == 2 && !shieldTimer.isRunning()) {
            ableToTakeDamage = false;
            shieldTimer.start();
        } else if (usedSpeedPot && !speedPotTimer.isRunning()) {

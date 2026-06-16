@@ -138,8 +138,8 @@ public class DisplayPanel extends JPanel implements KeyListener, ActionListener,
    public DisplayPanel() {
        health = 5;
        score = 0;
-       steveX = 56;
-       steveY = 128;
+       steveX = 576;
+       steveY = 576;
        zombieX = 544;
        zombieY = 485;
        skeletonX = 480;

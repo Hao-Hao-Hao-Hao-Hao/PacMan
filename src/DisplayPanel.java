@@ -319,7 +319,7 @@ public class DisplayPanel extends JPanel implements KeyListener, ActionListener,
             System.out.println(e.getMessage());
         }
        try {
-           heart = ImageIO.read(new File("imgs/Totem_Of_Undying.png"));
+           heart = ImageIO.read(new File("imgs/Heart.png"));
        } catch (IOException e) {
            System.out.println(e.getMessage());
        }
